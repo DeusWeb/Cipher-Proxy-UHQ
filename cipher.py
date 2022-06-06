@@ -1,6 +1,7 @@
 from colorama import Back, Fore, Style
 import os
 import requests
+import time
 
 banner = (f"""
 
@@ -28,4 +29,7 @@ def main():
 	url = f"https://api.proxyscrape.com/v2/?request=displayproxies&protocol={typeproxy}&timeout={timeout}&country=all&ssl=all&anonymity=all"
 	r = requests.get(url, allow_redirects=True)
 	open('proxies.txt', 'wb').write(r.content)
+	print(f"{Fore.LIGHTGREEN_EX}Succes proxy scrapped! {Fore.RED}\nExiting now...")
+	time.sleep(1)
+	exit()
 main()
